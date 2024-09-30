@@ -36,8 +36,9 @@ public class Menu {
             if (choice == 1) {
                 // Démarrer le jeu
                 System.out.println("Starting game...");
-                Game game = new Game(userChar);  // Passer userChar au jeu
-                game.startGame();  // Lancer le jeu
+                Game game = new Game(userChar); // Passer userChar au jeu
+                game.createPlateau();
+                game.moovPlateau();  // Lancer le jeu
 
             } else if (choice == 2) {
                 // Afficher les informations du personnage
