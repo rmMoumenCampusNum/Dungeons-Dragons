@@ -12,11 +12,12 @@ public class Warrior extends Character {
     @Override
     public void initializeCharacter() {
         setTypeChar("fr.campus.DonjonEtDragon.characters.Warrior");
-        setHealthLevelChar(1000); // Valeur par défaut pour fr.campus.DonjonEtDragon.characters.Warrior
-        setStrengthChar(10);     // Valeur par défaut pour fr.campus.DonjonEtDragon.characters.Warrior
+        setHealthLevelChar(100); // Valeur par défaut pour Warrior
+        setStrengthChar(10);     // Valeur par défaut pour Warrior
         offensiveEquipement = new Weapon();
+        offensiveEquipement.setNameWeapon("Sword");
         defensiveEquipement = new Shield();
-        defensiveEquipement.setNameShield("fr.campus.DonjonEtDragon.equipements.Shield");
+        defensiveEquipement.setNameShield("Shield");
     }
 
 }

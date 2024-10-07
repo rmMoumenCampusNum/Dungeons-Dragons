@@ -21,6 +21,7 @@ public class Potion implements Case {
 
     @Override
     public void interact(Character character) {
+        System.out.println("Case potion ! Je te rends " + getHealthLevel() + " points de vie.");
 character.setHealthLevelChar(character.getHealthLevelChar() + getHealthLevel());
         System.out.println("Nouveau niveau de vie : " + character.getHealthLevelChar());
     }

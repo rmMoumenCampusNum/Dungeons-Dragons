@@ -43,8 +43,8 @@ public class Opponent implements Case {
     @Override
     public void interact(Character character) {
 
-        if (getName().equals("fr.campus.DonjonEtDragon.characters.Gobelin")) {
-            System.out.println("Tu viens de tomber sur une case avec un fr.campus.DonjonEtDragon.characters.Gobelin !");
+        if (getName().equals("Gobelin")) {
+            System.out.println("Tu viens de tomber sur une case avec un Gobelin !");
             System.out.println("          .-,\n" +
                     "            / )      .' (       ___\n" +
                     "           //(.-\"\"\"-/ /\\ )   .-\"   \"-.\n" +
@@ -65,8 +65,8 @@ public class Opponent implements Case {
                     "      _.' _.-' `._ `-.   /       `.       /\n" +
                     "     /.--'        `-. `. \\         `-.__.'\n" +
                     "                     `.'_/                   ");
-        } else if (getName().equals("fr.campus.DonjonEtDragon.characters.Dragon")) {
-            System.out.println("Tu viens de tomber sur un énorme fr.campus.DonjonEtDragon.characters.Dragon et son chevalier !");
+        } else if (getName().equals("Dragon")) {
+            System.out.println("Tu viens de tomber sur un énorme Dragon et son chevalier !");
             System.out.println("                        /\\\n" +
                     "                        ||\n" +
                     "                        ||\n" +
@@ -120,20 +120,21 @@ public class Opponent implements Case {
 
         new java.util.Scanner(System.in).nextLine();
 
-        while (character.getHealthLevelChar() > 0) {
             int totalDamages = character.getStrengthChar() + character.offensiveEquipement.getAttackLevel();
 
             System.out.println("Tu attaques de " + totalDamages);
             setHealth(getHealth() - totalDamages);
+            if (getHealth() < 0){
+                setHealth(0);
+            }
             System.out.println("il reste " + getHealth() + " au " + getName());
 
 
-            System.out.println(getName() + " prend la fuite ! Mais tu n'as pas dit ton dernier mot avec lui ... ");
-
-            if (getHealth() <= 0) {
-                System.out.println(getName() + " est vaincu !");
-                break;
+            if (getHealth() > 0) {
+                System.out.println(getName() + " prend la fuite ! Mais tu n'as pas dit ton dernier mot avec lui ... ");
             }
+            else if (getHealth() <= 0) {
+                System.out.println(getName() + " est vaincu !");
         }
 
         if (character.getHealthLevelChar() == 0) {

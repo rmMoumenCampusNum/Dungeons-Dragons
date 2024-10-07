@@ -21,17 +21,16 @@ public class Game {
         this.playerChar = playerChar;
     }
 
-    public ArrayList createPlateau() {
+    public void createPlateau() {
         Opponent gobelin = new Gobelin();
         Opponent dragon = new Dragon();
         this.plateau = new ArrayList<>(Collections.nCopies(64, new EmptyCase()));
 
         placeObjectsRandomly(dragon, 4);
         placeObjectsRandomly(gobelin, 6);
-        //placeObjectsRandomly(new fr.campus.DonjonEtDragon.equipements.Potion(10), 5);
+        placeObjectsRandomly(new fr.campus.DonjonEtDragon.equipements.Potion(10), 5);
 
 
-        return plateau;
     }
 
     private void placeObjectsRandomly(Case obj, int count) {

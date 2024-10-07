@@ -10,11 +10,11 @@ public class EmptyCase implements Case {
 
     @Override
     public String toString() {
-        return "I'm an empty case";
+        return "Empty case, move forward";
     }
 
     @Override
     public void interact(Character character) {
-
+        System.out.println("Empty case, move forward.");
     }
 }
