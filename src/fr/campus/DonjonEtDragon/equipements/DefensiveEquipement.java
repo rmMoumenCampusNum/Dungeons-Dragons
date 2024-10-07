@@ -1,3 +1,5 @@
+package fr.campus.DonjonEtDragon.equipements;
+
 public abstract class DefensiveEquipement {
     private String nameShield;
     private int defenseLevel;

@@ -1,4 +1,9 @@
-public class Potion implements Case{
+package fr.campus.DonjonEtDragon.equipements;
+
+import fr.campus.DonjonEtDragon.characters.Character;
+import fr.campus.DonjonEtDragon.engine.Case;
+
+public class Potion implements Case {
     private int healthLevel;
 
     public Potion(int health){
@@ -16,6 +21,7 @@ public class Potion implements Case{
 
     @Override
     public void interact(Character character) {
-
+character.setHealthLevelChar(character.getHealthLevelChar() + getHealthLevel());
+        System.out.println("Nouveau niveau de vie : " + character.getHealthLevelChar());
     }
 }

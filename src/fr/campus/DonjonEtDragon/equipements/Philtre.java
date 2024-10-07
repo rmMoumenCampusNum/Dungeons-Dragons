@@ -1,3 +1,5 @@
+package fr.campus.DonjonEtDragon.equipements;
+
 public class Philtre extends DefensiveEquipement{
     public Philtre(){
         initializeShield();
@@ -5,6 +7,6 @@ public class Philtre extends DefensiveEquipement{
 
     public void initializeShield(){
         setDefenseLevel(10);
-        setNameShield("Philtre");
+        setNameShield("fr.campus.DonjonEtDragon.equipements.Philtre");
     }
 }

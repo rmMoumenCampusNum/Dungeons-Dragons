@@ -1,8 +1,18 @@
+package fr.campus.DonjonEtDragon.engine;
+
+import db.SQL;
+import fr.campus.DonjonEtDragon.characters.Character;
+import fr.campus.DonjonEtDragon.characters.LuckyMagician;
+import fr.campus.DonjonEtDragon.characters.Magician;
+import fr.campus.DonjonEtDragon.characters.Warrior;
+
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) {
-        Scanner myScan = new Scanner(System.in);
+    Scanner myScan = new Scanner(System.in);
+
+    public fr.campus.DonjonEtDragon.characters.Character createChar() {
+
 
         System.out.println("Please, enter a name for your character : ");
         String name = myScan.nextLine();
@@ -16,15 +26,20 @@ public class Menu {
         }
 
         // Création du personnage userChar
-        Character userChar;
+        fr.campus.DonjonEtDragon.characters.Character userChar;
         if (type.equals("Warrior")) {
             userChar = new Warrior(name);
         } else if (type.equals("Magician")) {
             userChar = new Magician(name);
-        } else { // type.equals("LuckyMagician")
+        } else { // type.equals("fr.campus.DonjonEtDragon.characters.LuckyMagician")
             userChar = new LuckyMagician(name);
         }
+        SQL.insertHero(name, type, userChar.getHealthLevelChar(), userChar.getStrengthChar(), userChar.getOffensiveEquipement().getNameWeapon(), userChar.getDefensiveEquipement().getNameShield());
+        System.out.println(SQL.getHeroes());
+        return userChar;
+    }
 
+    public void menu(Character userChar) {
         System.out.println("Welcome " + userChar.getNameChar() + ", what do you want to do ?");
 
         int choice = 0;
@@ -38,7 +53,7 @@ public class Menu {
                 System.out.println("Starting game...");
                 Game game = new Game(userChar); // Passer userChar au jeu
                 game.createPlateau();
-                game.moovPlateau();  // Lancer le jeu
+                    game.moovPlateau(); // Lancer le jeu
 
             } else if (choice == 2) {
                 // Afficher les informations du personnage
@@ -47,8 +62,8 @@ public class Menu {
                 System.out.println("Type : " + userChar.getTypeChar());
                 System.out.println("Health : " + userChar.getHealthLevelChar());
                 System.out.println("Strength : " + userChar.getStrengthChar());
-                System.out.println("Weapon : " + userChar.offensiveEquipement.getNameWeapon());
-                System.out.println("Shield : " + userChar.defensiveEquipement.getNameShield());
+                System.out.println("Weapon : " + userChar.getOffensiveEquipement().getNameWeapon());
+                System.out.println("Shield : " + userChar.getDefensiveEquipement().getNameShield());
 
             } else if (choice == 3) {
                 // Modifier les informations du personnage
@@ -70,9 +85,9 @@ public class Menu {
                     String newType = myScan.nextLine();
 
                     userChar = switch (newType) {
-                        case "Warrior" -> new Warrior(name);
-                        case "Magician" -> new Magician(name);
-                        case "LuckyMagician" -> new LuckyMagician(name);
+                        case "Warrior" -> new Warrior(userChar.getNameChar());
+                        case "Magician" -> new Magician(userChar.getNameChar());
+                        case "LuckyMagician" -> new LuckyMagician(userChar.getNameChar());
                         default -> userChar;
                     };
 
@@ -102,3 +117,4 @@ public class Menu {
         System.out.println("______________________________________");
     }
 }
+

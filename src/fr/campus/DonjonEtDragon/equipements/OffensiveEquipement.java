@@ -1,12 +1,14 @@
+package fr.campus.DonjonEtDragon.equipements;
+
 public abstract class OffensiveEquipement {
     private String nameWeapon;
     private int attackLevel;
 
-    public OffensiveEquipement(){}
+    public OffensiveEquipement() {
+    }
 
 
-
-    public String toString(){
+    public String toString() {
         return "I'm a " + nameWeapon;
     }
 

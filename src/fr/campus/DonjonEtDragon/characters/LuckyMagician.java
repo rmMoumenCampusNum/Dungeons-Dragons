@@ -1,3 +1,5 @@
+package fr.campus.DonjonEtDragon.characters;
+
 import java.util.Random;
 
 public class LuckyMagician extends Magician{

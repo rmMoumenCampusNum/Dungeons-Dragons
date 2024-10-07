@@ -1,3 +1,5 @@
+package fr.campus.DonjonEtDragon.equipements;
+
 public class Weapon extends OffensiveEquipement {
     public Weapon(){
         initializeWeapon();
